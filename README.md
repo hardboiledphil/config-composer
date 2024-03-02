@@ -24,7 +24,7 @@ The library comes with two annotations
 1) `@ConfigType` used on interfaces to mark them as a _configuration type_ 
 2) `@ConfigValue` used on methods of _configuration type_ interfaces to define _config values_ within a given type.
 
-It then provides a factory method to map a `com.typesafe.config.Config` object to a `com.mylaesoftware.GlobalConfig` which implements 
+It then provides a factory method to map a `com.typesafe.config.Config` object to a `com.mylaesoftware.annotations.GlobalConfig` which implements 
 all the `ConfigType` annotated interfaces.
 
 The annotations are processed at compiled time resulting into a class (the `GlobalConfig` implementation) containing the generated code to parse all the annotated config values.
@@ -168,7 +168,7 @@ All the basic types supported by `com.typesafe.config.Config` are also natively 
 In addition to that, the `com.typesafe.config.ConfigBeanFactory::create` method is used to attempt to read a complex type into a bean when 
 `@ConfigType(fallbackToBeanMapper = true)`.
 
-If needed, it is however possible to define custom mappers by implementing the `com.mylaesoftware.mappers.ConfigMapper` interface.
+If needed, it is however possible to define custom mappers by implementing the `com.mylaesoftware.annotations.mappers.ConfigMapper` interface.
 
 ```java
 

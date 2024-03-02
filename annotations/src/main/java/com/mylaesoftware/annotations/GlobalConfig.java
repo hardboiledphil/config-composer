@@ -1,4 +1,4 @@
-package com.mylaesoftware;
+package com.mylaesoftware.annotations;
 
 public interface GlobalConfig {
   String IMPLEMENTATION_NAME = "GlobalConfigImpl";

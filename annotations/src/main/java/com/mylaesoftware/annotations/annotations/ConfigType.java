@@ -1,7 +1,7 @@
-package com.mylaesoftware.annotations;
+package com.mylaesoftware.annotations.annotations;
 
-import com.mylaesoftware.validators.ConfigValidator;
-import com.mylaesoftware.validators.NoValidation;
+import com.mylaesoftware.annotations.validators.ConfigValidator;
+import com.mylaesoftware.annotations.validators.NoValidation;
 import com.typesafe.config.Config;
 
 import java.lang.annotation.ElementType;

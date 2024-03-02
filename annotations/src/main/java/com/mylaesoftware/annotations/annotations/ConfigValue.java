@@ -1,9 +1,9 @@
-package com.mylaesoftware.annotations;
+package com.mylaesoftware.annotations.annotations;
 
-import com.mylaesoftware.mappers.ConfigMapper;
-import com.mylaesoftware.mappers.NoMapper;
-import com.mylaesoftware.validators.ConfigValidator;
-import com.mylaesoftware.validators.NoValidation;
+import com.mylaesoftware.annotations.mappers.ConfigMapper;
+import com.mylaesoftware.annotations.mappers.NoMapper;
+import com.mylaesoftware.annotations.validators.ConfigValidator;
+import com.mylaesoftware.annotations.validators.NoValidation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

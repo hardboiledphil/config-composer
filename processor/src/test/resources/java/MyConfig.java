@@ -1,8 +1,8 @@
 package com.mylaesoftware.example;
 
 
-import com.mylaesoftware.annotations.ConfigType;
-import com.mylaesoftware.annotations.ConfigValue;
+import com.mylaesoftware.annotations.annotations.ConfigType;
+import com.mylaesoftware.annotations.annotations.ConfigValue;
 
 import java.time.Duration;
 import java.util.Optional;

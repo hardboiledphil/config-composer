@@ -1,10 +1,11 @@
-package com.mylaesoftware;
+package com.mylaesoftware.processor;
 
-import com.mylaesoftware.annotations.ConfigType;
-import com.mylaesoftware.annotations.ConfigValue;
-import com.mylaesoftware.exceptions.AnnotationProcessingException;
-import com.mylaesoftware.specs.ConfigTypeSpec;
-import com.mylaesoftware.specs.ConfigTypeSpecReducer;
+import com.mylaesoftware.annotations.annotations.ConfigType;
+import com.mylaesoftware.annotations.annotations.ConfigValue;
+import com.mylaesoftware.processor.AnnotationParamExtractor;
+import com.mylaesoftware.processor.exceptions.AnnotationProcessingException;
+import com.mylaesoftware.processor.specs.ConfigTypeSpec;
+import com.mylaesoftware.processor.specs.ConfigTypeSpecReducer;
 import com.squareup.javapoet.JavaFile;
 
 import javax.annotation.processing.AbstractProcessor;
@@ -27,8 +28,8 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static com.mylaesoftware.Annotations.CONFIG_TYPE;
-import static com.mylaesoftware.Annotations.CONFIG_VALUE;
+import static com.mylaesoftware.processor.Annotations.CONFIG_TYPE;
+import static com.mylaesoftware.processor.Annotations.CONFIG_VALUE;
 
 public class ConfigProcessor extends AbstractProcessor {
 

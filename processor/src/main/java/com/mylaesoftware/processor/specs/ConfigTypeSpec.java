@@ -1,8 +1,8 @@
-package com.mylaesoftware.specs;
+package com.mylaesoftware.processor.specs;
 
-import com.mylaesoftware.GlobalConfig;
-import com.mylaesoftware.validators.ConfigValidationException;
-import com.mylaesoftware.validators.ValidationError;
+import com.mylaesoftware.annotations.GlobalConfig;
+import com.mylaesoftware.annotations.validators.ConfigValidationException;
+import com.mylaesoftware.annotations.validators.ValidationError;
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.CodeBlock;
 import com.squareup.javapoet.MethodSpec;
@@ -22,7 +22,7 @@ import java.util.Set;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
-import static com.mylaesoftware.specs.ConfigTypeSpecReducer.merge;
+import static com.mylaesoftware.processor.specs.ConfigTypeSpecReducer.merge;
 import static java.util.Collections.emptyMap;
 import static java.util.Collections.emptySet;
 import static java.util.stream.Collectors.toSet;

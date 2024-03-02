@@ -1,6 +1,6 @@
 buildscript {
     ext.isReleaseVersion = !version.endsWith("SNAPSHOT")
-    ext.sonatypeUrl = "https://oss.sonatype.org"
+    ext.sonatypeUrl = "https://dml-eu.bpweb.bp.com/artifactory/remote-maven2/"
     ext.sonatypeUser = project.findProperty("ossrhUsername") ?: System.getenv("OSSRH_USERNAME")
     ext.sonatypePassword = project.findProperty("ossrhPassword") ?: System.getenv("OSSRH_PASSWORD")
 }
@@ -12,26 +12,30 @@ allprojects {
     apply plugin: "checkstyle"
     apply plugin: "signing"
 
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 
-    compileJava {
-        doFirst {
-            options.compilerArgs = [
-                    '--add-exports', 'jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED',
-                    '--add-exports', 'jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED'
-            ]
-        }
-    }
+//    compileJava {
+//        doFirst {
+//            options.compilerArgs = [
+//                    '--add-exports', 'jdk.compiler/com.sun.tools.javac.code=config.composer.processor',
+//                    '--add-exports', 'jdk.compiler/com.sun.tools.javac.util=config.composer.processor',
+//                    '--add-exports', 'jdk.compiler/com.sun.tools.javac.code=config.composer.annotations',
+//                    '--add-exports', 'jdk.compiler/com.sun.tools.javac.util=config.composer.annotations',
+//                    '--add-exports', 'jdk.compiler/com.sun.tools.javac.code=config.ALL-UNNAMED',
+//                    '--add-exports', 'jdk.compiler/com.sun.tools.javac.util=config.ALL-UNNAMED'
+//            ]
+//        }
+//    }
 
     repositories {
         mavenCentral()
     }
 
     dependencies {
-        testImplementation "org.junit.jupiter:junit-jupiter-api:5.1.0"
-        testImplementation "org.assertj:assertj-core:3.10.0"
-        testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.1.0"
+        testImplementation "org.junit.jupiter:junit-jupiter-api:5.10.2"
+        testImplementation "org.assertj:assertj-core:3.25.3"
+        testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.10.2"
     }
 
     checkstyle {
@@ -40,23 +44,23 @@ allprojects {
         maxErrors = 0
     }
 
-    tasks.withType(Checkstyle) {
-
-        reports {
-            xml.enabled false
-            html.enabled true
-        }
-    }
+//    tasks.withType(Checkstyle) {
+//
+//        reports {
+//            xml.enabled false
+//            html.enabled true
+//        }
+//    }
 
     test {
         useJUnitPlatform()
 
         maxParallelForks = Runtime.runtime.availableProcessors()
 
-        reports {
-            junitXml.enabled = false
-            html.enabled = true
-        }
+//        reports {
+//            junitXml.enabled = false
+//            html.enabled = true
+//        }
 
         testLogging {
             showStandardStreams = project.hasProperty("show-logs")
@@ -131,8 +135,16 @@ allprojects {
         }
     }
 
-    tasks.withType(Sign) {
+    tasks.withType(Sign).configureEach {
         onlyIf { isReleaseVersion }
+    }
+
+    tasks.withType(JavaCompile) {
+        options.compilerArgs.addAll([
+                '--add-exports', 'jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED',
+                '--add-exports', 'jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED'
+                ]
+        )
     }
 
     signing {
@@ -144,5 +156,5 @@ allprojects {
 
 
 wrapper {
-    gradleVersion = '5.2'
+    gradleVersion = '8.6'
 }

@@ -5,11 +5,14 @@ import com.google.testing.compile.Compilation;
 import com.google.testing.compile.Compilation.Status;
 import com.google.testing.compile.Compiler;
 import com.google.testing.compile.JavaFileObjects;
+import com.mylaesoftware.annotations.GlobalConfig;
 import com.mylaesoftware.assertions.DiagnosticAssert;
-import com.mylaesoftware.mappers.BasicMappers;
-import com.mylaesoftware.mappers.ConfigMapper;
-import com.mylaesoftware.validators.ConfigValidator;
-import com.mylaesoftware.validators.NonEmptyString;
+import com.mylaesoftware.annotations.mappers.BasicMappers;
+import com.mylaesoftware.annotations.mappers.ConfigMapper;
+import com.mylaesoftware.annotations.validators.ConfigValidator;
+import com.mylaesoftware.annotations.validators.NonEmptyString;
+import com.mylaesoftware.processor.Annotations;
+import com.mylaesoftware.processor.ConfigProcessor;
 import com.typesafe.config.Config;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
@@ -31,8 +34,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
-import static com.mylaesoftware.Annotations.CONFIG_TYPE;
-import static com.mylaesoftware.Annotations.CONFIG_VALUE;
+import static com.mylaesoftware.processor.Annotations.CONFIG_TYPE;
+import static com.mylaesoftware.processor.Annotations.CONFIG_VALUE;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static java.util.Collections.singletonMap;
 import static org.apache.commons.lang3.StringUtils.capitalize;
@@ -67,6 +70,7 @@ public class ConfigProcessorTest {
   private static void withCompiledSource(Map<String, String> inputSources, Consumer<Compilation> action) {
     action.accept(
         Compiler.javac()
+            .withOptions()
             .withProcessors(new ConfigProcessor())
             .compile(
                 inputSources.entrySet().stream()

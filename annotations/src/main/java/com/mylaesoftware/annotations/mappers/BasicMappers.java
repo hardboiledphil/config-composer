@@ -1,4 +1,4 @@
-package com.mylaesoftware.mappers;
+package com.mylaesoftware.annotations.mappers;
 
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigBeanFactory;

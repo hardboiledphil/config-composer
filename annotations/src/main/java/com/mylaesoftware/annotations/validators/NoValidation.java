@@ -1,4 +1,4 @@
-package com.mylaesoftware.validators;
+package com.mylaesoftware.annotations.validators;
 
 import java.util.Collection;
 

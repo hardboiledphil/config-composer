@@ -1,7 +1,7 @@
 package com.mylaesoftware.example;
 
-import com.mylaesoftware.validators.ConfigValidator;
-import com.mylaesoftware.validators.ValidationError;
+import com.mylaesoftware.annotations.validators.ConfigValidator;
+import com.mylaesoftware.annotations.validators.ValidationError;
 
 import java.util.Collection;
 import java.util.Collections;

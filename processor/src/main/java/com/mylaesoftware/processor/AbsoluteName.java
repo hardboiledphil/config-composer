@@ -1,4 +1,4 @@
-package com.mylaesoftware;
+package com.mylaesoftware.processor;
 
 import javax.lang.model.element.Element;
 import javax.lang.model.element.ElementKind;

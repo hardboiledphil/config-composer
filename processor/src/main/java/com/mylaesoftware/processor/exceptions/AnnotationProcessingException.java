@@ -1,6 +1,6 @@
-package com.mylaesoftware.exceptions;
+package com.mylaesoftware.processor.exceptions;
 
-import com.mylaesoftware.AbsoluteName;
+import com.mylaesoftware.processor.AbsoluteName;
 
 import javax.lang.model.element.Element;
 

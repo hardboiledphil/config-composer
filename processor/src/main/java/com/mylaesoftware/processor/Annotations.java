@@ -1,7 +1,7 @@
-package com.mylaesoftware;
+package com.mylaesoftware.processor;
 
-import com.mylaesoftware.annotations.ConfigType;
-import com.mylaesoftware.annotations.ConfigValue;
+import com.mylaesoftware.annotations.annotations.ConfigType;
+import com.mylaesoftware.annotations.annotations.ConfigValue;
 
 public enum Annotations {
 

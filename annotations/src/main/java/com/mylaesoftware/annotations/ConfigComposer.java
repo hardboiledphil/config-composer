@@ -1,4 +1,4 @@
-package com.mylaesoftware;
+package com.mylaesoftware.annotations;
 
 import com.typesafe.config.Config;
 
