@@ -1,4 +1,4 @@
-package com.mylaesoftware.assertions;
+package com.mylaesoftware.processor.assertions;
 
 import org.assertj.core.api.ObjectAssert;
 

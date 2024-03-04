@@ -1,11 +1,12 @@
-package com.mylaesoftware;
+package com.mylaesoftware.processor;
 
 import com.google.common.collect.ImmutableList;
 import com.google.testing.compile.Compilation;
 import com.google.testing.compile.Compilation.Status;
 import com.google.testing.compile.Compiler;
 import com.google.testing.compile.JavaFileObjects;
-import com.mylaesoftware.assertions.DiagnosticAssert;
+import com.mylaesoftware.GlobalConfig;
+import com.mylaesoftware.processor.assertions.DiagnosticAssert;
 import com.mylaesoftware.mappers.BasicMappers;
 import com.mylaesoftware.mappers.ConfigMapper;
 import com.mylaesoftware.validators.ConfigValidator;
@@ -31,8 +32,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
-import static com.mylaesoftware.Annotations.CONFIG_TYPE;
-import static com.mylaesoftware.Annotations.CONFIG_VALUE;
+import static com.mylaesoftware.processor.Annotations.CONFIG_TYPE;
+import static com.mylaesoftware.processor.Annotations.CONFIG_VALUE;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static java.util.Collections.singletonMap;
 import static org.apache.commons.lang3.StringUtils.capitalize;
@@ -452,7 +453,7 @@ public class ConfigProcessorTest {
   public void shouldBuildInParallel() throws URISyntaxException {
     final AtomicInteger i = new AtomicInteger();
     Map<String, String> sources = FileUtils.listFiles(new File(getClass().getResource("/java/").toURI()), null, false)
-        .parallelStream()
+        .stream()
         .map(this::readFileToString)
         .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     while (i.incrementAndGet() < 100) {

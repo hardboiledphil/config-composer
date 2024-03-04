@@ -1,8 +1,8 @@
-package com.mylaesoftware.specs;
+package com.mylaesoftware.processor.specs;
 
-import com.mylaesoftware.AnnotationParamExtractor;
+import com.mylaesoftware.processor.AnnotationParamExtractor;
 import com.mylaesoftware.annotations.ConfigValue;
-import com.mylaesoftware.exceptions.AnnotationProcessingException;
+import com.mylaesoftware.processor.exceptions.AnnotationProcessingException;
 import com.mylaesoftware.mappers.BasicMappers.BeanM;
 import com.mylaesoftware.mappers.BasicMappers.EnumM;
 import com.mylaesoftware.mappers.BasicMappers.StringM;

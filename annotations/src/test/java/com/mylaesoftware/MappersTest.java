@@ -1,5 +1,6 @@
-package com.mylaesoftware.mappers;
+package com.mylaesoftware;
 
+import com.mylaesoftware.mappers.BasicMappers;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 import org.assertj.core.api.Assertions;

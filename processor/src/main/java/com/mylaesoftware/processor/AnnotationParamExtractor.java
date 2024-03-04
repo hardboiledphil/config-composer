@@ -1,6 +1,6 @@
-package com.mylaesoftware;
+package com.mylaesoftware.processor;
 
-import com.mylaesoftware.exceptions.AnnotationProcessingException;
+import com.mylaesoftware.processor.exceptions.AnnotationProcessingException;
 import com.mylaesoftware.mappers.NoMapper;
 import com.mylaesoftware.validators.NoValidation;
 import com.sun.tools.javac.code.Symbol.MethodSymbol;

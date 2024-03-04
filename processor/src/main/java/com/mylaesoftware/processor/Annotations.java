@@ -1,4 +1,4 @@
-package com.mylaesoftware;
+package com.mylaesoftware.processor;
 
 import com.mylaesoftware.annotations.ConfigType;
 import com.mylaesoftware.annotations.ConfigValue;

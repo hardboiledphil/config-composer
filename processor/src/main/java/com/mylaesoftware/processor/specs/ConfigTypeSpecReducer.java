@@ -1,10 +1,10 @@
-package com.mylaesoftware.specs;
+package com.mylaesoftware.processor.specs;
 
-import com.mylaesoftware.AnnotationParamExtractor;
-import com.mylaesoftware.Annotations;
+import com.mylaesoftware.processor.AnnotationParamExtractor;
+import com.mylaesoftware.processor.Annotations;
 import com.mylaesoftware.annotations.ConfigType;
 import com.mylaesoftware.annotations.ConfigValue;
-import com.mylaesoftware.exceptions.AnnotationProcessingException;
+import com.mylaesoftware.processor.exceptions.AnnotationProcessingException;
 import com.mylaesoftware.validators.ConfigValidator;
 import com.squareup.javapoet.ClassName;
 
@@ -23,7 +23,7 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
-import static com.mylaesoftware.Annotations.CONFIG_VALUE;
+import static com.mylaesoftware.processor.Annotations.CONFIG_VALUE;
 import static com.sun.tools.javac.code.Symbol.MethodSymbol;
 import static java.util.Collections.singletonList;
 import static java.util.Collections.singletonMap;

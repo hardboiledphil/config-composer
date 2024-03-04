@@ -1,4 +1,4 @@
-package com.mylaesoftware;
+package com.mylaesoftware.processor;
 
 public class TestBean {
   private String field;
