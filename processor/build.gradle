@@ -16,14 +16,14 @@ dependencies {
 compileJava {
     doFirst {
         options.compilerArgs = [
-                '--add-modules', 'jdk.compiler',
+//                '--add-modules', 'jdk.compiler',
                 '--add-exports', 'jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED',
                 '--add-exports', 'jdk.compiler/com.sun.tools.javac.code=config.composer.processor',
                 '--add-exports', 'jdk.compiler/com.sun.tools.javac.code=config.composer.annotations',
                 '--add-exports', 'jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED',
                 '--add-exports', 'jdk.compiler/com.sun.tools.javac.util=config.composer.processor',
-                '--add-modules', 'typesafe.config',
-                '--module-path', configurations.compileClasspath.asPath
+                '--add-modules', 'typesafe.config'
+//                '--module-path', configurations.compileClasspath.asPath
         ]
     }
 }
@@ -31,20 +31,26 @@ compileJava {
 compileTestJava {
     doFirst {
         options.compilerArgs = [
-                '--add-modules', 'jdk.compiler',
+//                '--add-modules', 'jdk.compiler',
                 '--add-exports', 'jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED',
                 '--add-exports', 'jdk.compiler/com.sun.tools.javac.code=config.composer.processor',
                 '--add-exports', 'jdk.compiler/com.sun.tools.javac.code=config.composer.annotations',
                 '--add-exports', 'jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED',
                 '--add-exports', 'jdk.compiler/com.sun.tools.javac.util=config.composer.processor',
-                '--add-modules', 'typesafe.config',
+//                '--add-modules', 'typesafe.config'
                 '--module-path', configurations.compileClasspath.asPath
         ]
     }
 }
 
-test {
-    jvmArgs = ['--illegal-access=permit']
+tasks.test.configure {
+    useJUnitPlatform()
+
+    // See: https://github.com/google/compile-testing/issues/222
+    jvmArgs("--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED")
+    jvmArgs("--add-exports=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED")
+    jvmArgs("--add-exports=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED")
+    jvmArgs("--add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED")
 }
 
 publishing {

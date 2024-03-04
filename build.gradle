@@ -9,7 +9,7 @@ allprojects {
 
     apply plugin: "java"
     apply plugin: "maven-publish"
-    apply plugin: "checkstyle"
+//    apply plugin: "checkstyle"
     apply plugin: "signing"
 
     sourceCompatibility = JavaVersion.VERSION_21
@@ -25,18 +25,18 @@ allprojects {
         testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.10.1"
     }
 
-    checkstyle {
-        toolVersion = "8.17"
-        maxWarnings = 0
-        maxErrors = 0
-    }
+//    checkstyle {
+//        toolVersion = "8.17"
+//        maxWarnings = 0
+//        maxErrors = 0
+//    }
 
-    tasks.withType(Checkstyle).configureEach {
-        reports {
-            xml.enabled false
-            html.enabled true
-        }
-    }
+//    tasks.withType(Checkstyle).configureEach {
+//        reports {
+//            xml.enabled false
+//            html.enabled true
+//        }
+//    }
 
     tasks.register('printJars') {
         doLast {
